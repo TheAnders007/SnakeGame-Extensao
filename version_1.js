@@ -1,19 +1,32 @@
+let grid;
 let snake;
 
 function setup(){
-  createCanvas(400, 400);
-  snake = createVector(50, 50);
-  strokeWeight(5);
+  createCanvas(450, 450);
+  
+  grid = width/15;
+  
+  rectMode(CENTER);
+  noStroke();
+  
+  snake = new Snake();
 }
 
 function draw(){
-  background(220);
-  point(snake);
+  background(90, 110, 180);
+  
+  snake.mostrar()
 }
 
-function keyPressed(){
-  if (keyCode == RIGHT_ARROW) snake.x += 5;
-  else if (keyCode == LEFT_ARROW) snake.x -= 5;
-  else if (keyCode == UP_ARROW) snake.y -= 5;
-  else if (keyCode == DOWN_ARROW) snake.y += 5;
+
+class Snake {
+  constructor() {
+    this.pos = createVector(225, 225);
+  }
+  
+  mostrar(){
+    fill(60, 220, 0);
+    
+    rect(this.pos.x, this.pos.y, grid);
+  }
 }
